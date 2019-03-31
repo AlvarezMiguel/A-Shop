@@ -31,13 +31,14 @@ int main(int argc, char const *argv[]) {
 				FILE *archivo; //creamos apuntador a archivo
 
 				if( ( archivo = fopen(dep,"r") ) == NULL ) {//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
-					printf("Error al leer el archivo.");
+					printf("Error al leer el archivo.\n");
 					break;
 				}
 				else {
 					int var=correrLogin();
+					printf("%d\n",var);
 					}
-					
+				fclose(archivo); 
 			break;
 
 			default:
@@ -84,7 +85,7 @@ int obtieneLinea(char* idA){
 	int lines=0;
 	FILE *fp; //creamos apuntador a archivo
 
-	if( ( fp = fopen("inventario.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
+	if( ( fp = fopen("depaPrueba.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
 	printf("Error al leer el archivo.");
 
 	else{
@@ -107,7 +108,7 @@ char * recuperarCadena(int linea){
 	int lines=0;
 	FILE *fp; //creamos apuntador a archivo
 
-	if( ( fp = fopen("invetario.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
+	if( ( fp = fopen("depaPrueba.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
 	printf("Error al leer el archivo.");
 	else{
 		while (!feof(fp)) {
