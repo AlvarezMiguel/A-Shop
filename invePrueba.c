@@ -37,6 +37,7 @@ int main(int argc, char const *argv[]) {
 				else {
 					int var=correrLogin();
 					printf("%d\n",var);
+					
 					}
 				fclose(archivo); 
 			break;
@@ -65,17 +66,7 @@ int tipoEmpleado(char* user){
 	int tipo;
 	int lineaStrart=obtieneLinea(user);
 	char* cad;
-	cad=recuperarCadena(lineaStrart+2);
-	
-	//cad=recuperarCadena(lineaStrart+3);
-	if(strcmp(cad,user) ==0){
-		cad=recuperarCadena(lineaStrart+4);
-		tipo = cad[0] - '0'; 
-		return tipo;
-	}
-	else {
-		return 0;
-	}
+	return lineaStrart+1;
 }
 
 
@@ -100,28 +91,4 @@ int obtieneLinea(char* idA){
 }
 	fclose(fp); //cierra el archivo 
 	return lines;
-}
-
-char * recuperarCadena(int linea){
-	int i;
-	static char nombre[30];
-	int lines=0;
-	FILE *fp; //creamos apuntador a archivo
-
-	if( ( fp = fopen("depaPrueba.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
-	printf("Error al leer el archivo.");
-	else{
-		while (!feof(fp)) {
-			fscanf(fp, "%s\n", nombre);
-			lines++;
-			if(lines==linea-1) {
-				fclose(fp);
-				return nombre;	
-			}
-		}
-	}
-	fclose(fp); //cierra el archivo 
-	//printf("%s\n",nombre );
-	//printf("sdsd\n");
-	return nombre;
 }
