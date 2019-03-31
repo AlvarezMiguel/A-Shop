@@ -19,6 +19,7 @@ int main() {
 		printf("2. Iniciar sesion\n");
 		printf("3. Salir\n");
 		printf("R: ");
+		printf("Prueba...")
 		scanf("%d",&op);
 		switch (op) {
 			case 1:
