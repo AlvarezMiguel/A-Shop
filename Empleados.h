@@ -26,19 +26,38 @@ void funcionEmpleado(int tipo) {
 void admin() {
 	int op;
 	do {
-		printf("ADMINISTRADORES\n");
+		printf("\nADMINISTRADORES\n\n");
 		printf("1. Dar de baja departamento\n");
 		printf("2. Dar de alta departamento \n");
 		printf("3. Modificar informacion de empleados\n");
 		printf("4. Agregar empleado\n");
 		printf("5. Eliminar empleado\n");
+		printf("6. Salir\n");
 		scanf("%d",&op);
-		if(op==1) {
-			bajaDep();
-		} else if(op==2) {
-			altaDep();
-		} else {
-			printf("Opcion incorrecta\n");
+		switch(op) {
+			case 1:
+				bajaDep();
+			break;
+
+			case 2:
+				altaDep();
+			break;
+
+			case 3:
+
+			break;
+
+			case 4:
+
+			break;
+
+			case 5:
+
+			break;
+
+			default:
+				printf("Opcion incorrecta\n");
+			break;
 		}
-	}while(op!=4);
+	}while(op!=6);
 }
