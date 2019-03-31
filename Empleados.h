@@ -2,11 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include "AltaBajaDep.h"
+#include "AltaBajaEmple.h"
 #include "Venta.h"
 
 void funcionEmpleado();
 void ventas();
-//void compras();
+void compras();
 void admin();
 
 void funcionEmpleado(int tipo) {
@@ -16,7 +17,7 @@ void funcionEmpleado(int tipo) {
 	}
 	else if (tipo==2) {
 		//printf("AREA DE COMPRAS\n");
-		//compras();
+		compras();
 	}
 	else if (tipo==3) {
 		admin();
@@ -27,7 +28,7 @@ void funcionEmpleado(int tipo) {
 void admin() {
 	int op;
 	do {
-		printf("\nADMINISTRADORES\n\n");
+		printf("\nBIENVENIDO\nADMINISTRADORES\n\n");
 		printf("1. Dar de baja departamento\n");
 		printf("2. Dar de alta departamento \n");
 		printf("3. Modificar informacion de empleados\n");
@@ -49,11 +50,11 @@ void admin() {
 			break;
 
 			case 4:
-				//agregaEmpleado();
+				agregaEmpleado();
 			break;
 
 			case 5:
-				//eliminaEmpleado();
+				eliminaEmpleado();
 			break;
 
 			default:
@@ -66,7 +67,13 @@ void admin() {
 
 void ventas() {
 	int op;
-	printf("\nVENTAS\n");
+	printf("\nBIENVENIDO\nAREA DE VENTAS\n");
 	printf("Venta de articulos\n");
 	vender(); 
+}
+
+void compras() {
+	printf("\nBIENVENIDO\nAREA DE COMPRAS\n");
+	printf("Surtir articulos existentes\n");
+
 }
