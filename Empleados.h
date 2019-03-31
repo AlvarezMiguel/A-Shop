@@ -2,16 +2,17 @@
 #include <string.h>
 #include <stdlib.h>
 #include "AltaBajaDep.h"
+#include "Venta.h"
 
 void funcionEmpleado();
-//void ventas();
+void ventas();
 //void compras();
 void admin();
 
 void funcionEmpleado(int tipo) {
 	if(tipo==1) {
 		//printf("AREA DE VENTAS\n");
-		//ventas();
+		ventas();
 	}
 	else if (tipo==2) {
 		//printf("AREA DE COMPRAS\n");
@@ -48,11 +49,11 @@ void admin() {
 			break;
 
 			case 4:
-
+				//agregaEmpleado();
 			break;
 
 			case 5:
-
+				//eliminaEmpleado();
 			break;
 
 			default:
@@ -60,4 +61,12 @@ void admin() {
 			break;
 		}
 	}while(op!=6);
+}
+
+
+void ventas() {
+	int op;
+	printf("\nVENTAS\n");
+	printf("Venta de articulos\n");
+	vender(); 
 }
