@@ -10,8 +10,8 @@ int num_lineas_archivo(void); //obtiene el numero de lineas del archivo empleado
 void sueldo ()// para probarlo, cambie sueldo por main , DEBE TENER CREADO EL ARCHIVO empleado.txt
 {
 	
-	int linea,noempleado, totallineas, a;
-	char * cadena; 
+	int linea,noempleado, totallineas;
+	char * cadena, *nomEmp, *apEmp; 
 	float sueldo,sueldototal;
 	noempleado=1;//contador de empleados 
 	sueldototal=0;
@@ -26,13 +26,19 @@ void sueldo ()// para probarlo, cambie sueldo por main , DEBE TENER CREADO EL AR
 		noempleado++;
 		cadena=obtieneCadena(linea);// cadena extraida del archivo, regresa  un apuntador 
 		sueldo=(float)atof(cadena); //cambio de cadena a float
-		
-		printf("Sueldo de empleado %d :%s\n ",noempleado-1,cadena);
+		printf("--------------------\n");
+		nomEmp=obtieneCadena(linea-5);
+		printf("%s", nomEmp);
+		apEmp=obtieneCadena(linea-4);
+		printf("%s", apEmp);
+		printf("Sueldo :%f\n ",sueldo);
+		printf("--------------------\n");
 		linea=linea+7;
 		sueldototal = sueldototal + sueldo;
 		
 	}
 	printf("Total : %f\n ",sueldototal);
+
 
 }
 
