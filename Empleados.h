@@ -53,7 +53,7 @@ void admin() {
 			break;
 
 			case 3:
-
+				printf("Falta\n");
 			break;
 
 			case 4:
@@ -64,8 +64,10 @@ void admin() {
 				eliminaEmpleado();
 			break;
 			case 6:
+				agregarArti();
 			break;
 			case 7:
+				printf("Falta\n");
 			break;
 			case 8:
 				sueldo();
