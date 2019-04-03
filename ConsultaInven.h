@@ -7,7 +7,7 @@
 char * obtieneCadena(int linea,char *nombredepa);
 int num_lineas_archivo(char * nombredepa);
 
-int main(int argc, char const *argv[])
+void consultaInven(int argc, char const *argv[])
 {
 	char nombredepa[20];
 
@@ -33,7 +33,6 @@ int main(int argc, char const *argv[])
 	}
 
 
-	return 0;
 }
 int num_lineas_archivo(char * nombredepa) //cuenta el número total de lineas en el archivo empleados.
 {
