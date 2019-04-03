@@ -123,10 +123,10 @@ void recibo(Producto productos[2]) {
         fputs ("Error al generar el recibo",stderr);
     }
     else {
-    	fprintf (fp, "\tTienda A Shop Retail\n");
-	    fprintf(fp, "\tAv. Proteco #33, Av. Tabasco 2000, Villahermosa, Tabasco.\n");
+    	fprintf (fp, "\tTienda A Shop Super Pro\n");
+	    fprintf(fp, "\tAv. No se que #1001 Estado de México, México.\n");
 	    //fprintf(fp,"Empleado: %s",);
-	    fprintf(fp, "---------------\n\tRECIBO DE COMPRA\n---------------");
+	    fprintf(fp, "-------\n\tRECIBO DE COMPRA\n--------");
 	    int j;
 	    for(j = 0; j < 1; j++){
 
@@ -135,7 +135,7 @@ void recibo(Producto productos[2]) {
 	        fprintf(fp, "%s $ , Cantidad:%s    Sub: \n",productos[j].nombre,productos[j].cantidad);
 	    }
 	    //fprintf(fp, "\n\t TOTAL : $%d\n",);
-	    fprintf(fp, "\n\tA SHOP agradece su preferencia\n");
+	    fprintf(fp, "\n\tAgradecemos su preferencia. Vuelva pronto\n");
     }
    	printf("Se ha generado tu recibo.");
     fclose(fp);
