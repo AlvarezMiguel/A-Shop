@@ -7,7 +7,7 @@
 char * obtieneCadena(int linea); // extrae la cadena contenida en "X" numéro de lines (algo ineficiente porque recorre todo el archivo) 
 int num_lineas_archivo(void); //obtiene el numero de lineas del archivo empleado con el fin de sabes cuántos empleados existen
 
-int sueldo (int argc, char const *argv[])// para probarlo, cambie sueldo por main , DEBE TENER CREADO EL ARCHIVO empleado.txt
+void sueldo ()// para probarlo, cambie sueldo por main , DEBE TENER CREADO EL ARCHIVO empleado.txt
 {
 	
 	int linea,noempleado, totallineas, a;
@@ -34,7 +34,6 @@ int sueldo (int argc, char const *argv[])// para probarlo, cambie sueldo por mai
 	}
 	printf("Total : %f\n ",sueldototal);
 
-	return 0;
 }
 
 int num_lineas_archivo(void) //cuenta el número total de lineas en el archivo empleados.
