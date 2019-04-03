@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-//#include "Login.h"
 
 typedef struct Empleado {
 	char nombre_empleado[32];
@@ -14,6 +13,7 @@ typedef struct Empleado {
 	struct Empleado* siguiente;
 }Empleado;
 Empleado* empleados_inicio = NULL;
+/*La estructura nos sirve para recuperar la informacion de los empleados para no perderla*/
 
 int obti(char* nombreEmp);
 
@@ -23,47 +23,41 @@ void agregaEmpleado(){
 	char nombre[10];
 	do{
 		Empleado empleado;
-		FILE* archivo=fopen("empleados.txt","a+");
+		FILE* archivo=fopen("empleados.txt","r+"); //debe de existir 
 
 		printf("Nombre del empleado: ");
 		scanf("%s",empleado.nombre_empleado);
 		fprintf(archivo,"\n%s \n",empleado.nombre_empleado);
-		//fputs(empleado.nombre_empleado,archivo);
 
 		printf("Apellido del empleado: ");
 		scanf("%s",empleado.apellido);
 		fprintf(archivo,"%s \n",empleado.apellido);
-		//fputs(empleado.apellido,archivo);
 
 		printf("Usuario del empleado: ");
 		scanf(" %s",empleado.usuario);
 		fprintf(archivo,"%s \n",empleado.usuario);
-		//fputs(empleado.usuario,archivo);
 
 		printf("Contraseña del empleado: ");
 		scanf(" %s",empleado.contrasena);
 		fprintf(archivo,"%s \n",empleado.contrasena);
-		//fputs(empleado.contrasena,archivo);
 
 		printf("Tipo de empleado: ");
 		scanf(" %s",empleado.tipo_empleado);
 		fprintf(archivo,"%s \n",empleado.tipo_empleado);
-		//fputs(empleado.tipo_empleado,archivo);
 
 		printf("Sueldo del empleado: ");
 		scanf("%s",empleado.sueldo);
 		fprintf(archivo,"%s \n",empleado.sueldo);	
-		//fputs(*empleado.sueldo,archivo);
 
 		fseek(archivo,0,SEEK_END);
 		finalarchivo = ftell(archivo);
 		fclose(archivo);
-		printf("Desea continuar(1)?\n");
+		printf("Desea continuar(Si-1) (No-2)?\n");
 		scanf("%d", &opcion);
 		printf("\n");
 
 	}while(opcion == 1 || opcion == 1);	
-    printf("Se ha agregado al empleado\n");
+    printf("*****Se ha agregado al empleado******\n");
 }
 
 void eliminaEmpleado()
@@ -91,13 +85,12 @@ void eliminaEmpleado()
        
         lno = obti(nombreel);
 		lno++;
-        printf("Linea %d\n",lno);
+        //printf("Linea %d\n",lno);
 
         for(int i=0;i<100;i++){
 			nombreel[i]='\0';
 		}
-
-        // copy all contents to the temporary file other except specific line
+        //copia la info de los empleados en un archivo temporal
         while (!feof(fptr1)) 
         {
             strcpy(str, "\0");
@@ -133,11 +126,12 @@ void eliminaEmpleado()
  
 }
 
+/*VOlvemos a popiar la misma funcion porque nos generaba error, esa parte falta corregir*/
 int obti(char* nombreEmp){
     int i;
     static char nombre[30];
     int lines=0;
-    FILE *fp; //creamos apuntador a archivo
+    FILE *fp; 
 
     if( ( fp = fopen("empleados.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
     printf("Error al leer el archivo.");
