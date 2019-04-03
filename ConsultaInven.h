@@ -4,39 +4,43 @@
 #define NOM_ARCHIVO "Dulces.txt"
 
 
-char * obtieneCadena(int linea);
-int num_lineas_archivo(void);
+char * obtieneCadena(int linea,char *nombredepa);
+int num_lineas_archivo(char * nombredepa);
 
 int main(int argc, char const *argv[])
 {
-	
+	char nombredepa[20];
+
+	printf("Nombre del departamento a consultar \n");
+	scanf("%s", nombredepa);	
 
 	int linea, noarticulos,totallineas;
 	char * cadena, * cantidad;
 	float sueldo;
-	totallineas= num_lineas_archivo ();
+	totallineas= num_lineas_archivo (nombredepa);
 	noarticulos=1;
 	
 	for (linea = 2 ; noarticulos<=(totallineas/6)+1 ; linea)
 	{
 		noarticulos ++;
-		cadena=obtieneCadena(linea);
+		cadena=obtieneCadena(linea,nombredepa);
+		printf("***************************\n");
 		printf("Articulo : %s\n", cadena);
-		cantidad=obtieneCadena(linea+1);
+		cantidad=obtieneCadena(linea+1,nombredepa);
 		printf("En existencia : %s\n",cantidad );
-		printf("_________________________\n");
+		printf("***************************\n");
 		linea=linea +5;
 	}
 
 
 	return 0;
 }
-int num_lineas_archivo(void) //cuenta el número total de lineas en el archivo empleados.
+int num_lineas_archivo(char * nombredepa) //cuenta el número total de lineas en el archivo empleados.
 {
    FILE *entrada;
    int ch, num_lineas;
    
-   if ((entrada = fopen(NOM_ARCHIVO, "r")) == NULL){
+   if ((entrada = fopen(nombredepa, "r")) == NULL){
      
      }
    
@@ -54,13 +58,13 @@ int num_lineas_archivo(void) //cuenta el número total de lineas en el archivo e
 
 
 
-char * obtieneCadena(int linea){
+char * obtieneCadena(int linea,char*  nombredepa){
 	int i;
 	static char cadena[30];
 	int lines=0;
 	FILE *fp; //creamos apuntador a archivo
 
-	if( ( fp = fopen(NOM_ARCHIVO,"r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
+	if( ( fp = fopen(nombredepa,"r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
 	printf("Error al leer el archivo.");
 
 	else{
