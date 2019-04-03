@@ -18,12 +18,13 @@ char * recuperarCad(int linea,char depar[30]);
 void recibo(Producto productos[2]);
 int obtiLinea(char* nombreEmp);
 
+int num_lineas_archivo(char * nombredepa);
 
-void vender() {
+int main() {
 	Producto product1, product2;
     Producto productos[] = {product1,product2};
 	char compraArt[30];
-	char cant[30];
+	char cant[30],preArtic;
 	int cantint;
 
 	int lineaC;
@@ -31,7 +32,8 @@ void vender() {
 	printf("Que articulo quieres comprar? R: ");
 	scanf("%s",compraArt);
 	lineaC=obtiLinea(compraArt);
-	printf("%d",lineaC);
+	//printf("%d",lineaC);
+	preArtic=
 
 	strcpy(productos[0].nombre,compraArt);
 	printf("Cuantos quieres comprar? R: ");
@@ -45,6 +47,7 @@ void vender() {
 	recibo(productos);
 	//De aqui modificamos el txt
 	
+	return 0;
 }
 
 void mostrarArticulos() {
@@ -56,14 +59,18 @@ void mostrarArticulos() {
 
 	char* cad;
 	char* precio;
-	int i,cont=3;
+	int linea, noarticulos=0,totallineas;
     printf("\nLos articulos del departamento son:\n");
-    for(i=0;i<2;i++) {
-   		cad=recuperarCad(cont,depar);
+
+    totallineas=num_lineas_archivo(depar);
+    for(linea=3;noarticulos<=(totallineas/6);linea) {
+    	noarticulos ++;
+    	printf("%d ",noarticulos );
+   		cad=recuperarCad(linea,depar);
       	printf("%s",cad);
-       	precio=recuperarCad(cont+2,depar);
+       	precio=recuperarCad(linea+3,depar);
     	printf("  $%s\n",precio);
-    	cont=cont+5;
+    	linea=linea+5;
     }
 }
 
@@ -75,7 +82,7 @@ char * recuperarCad(int linea,char depar[30]){
 	FILE *fp; //creamos apuntador a archivo
 
 	if( ( fp = fopen(depar,"r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
-	printf("Error al leer el archivo.");
+	printf("Error al leer el archivo ");
 	else{
 		while (!feof(fp)) {
 			fscanf(fp, "%s\n", nombre);
@@ -99,7 +106,7 @@ int obtiLinea(char* nombreEmp){
 	FILE *fp; //creamos apuntador a archivo
 
 	if( ( fp = fopen("empleados.txt","r") ) == NULL )//comprueba que haya un archivo con nombre archivo.txt que se pueda leer
-	printf("Error al leer el archivo.");
+	printf("Error al leer el archivo .");
 
 	else{
 	while (!feof(fp)) {
@@ -142,3 +149,23 @@ void recibo(Producto productos[2]) {
 
 }
 
+int num_lineas_archivo(char * nombredepa) //cuenta el número total de lineas en el archivo empleados.
+{
+   FILE *entrada;
+   int ch, num_lineas;
+   
+   if ((entrada = fopen(nombredepa, "r")) == NULL){
+     
+     }
+   
+   num_lineas = 0;
+   while ((ch = fgetc(entrada)) != EOF)
+   {
+      if (ch == '\n')
+         num_lineas++;
+   }
+   
+   fclose(entrada);
+      
+   return num_lineas;
+}
