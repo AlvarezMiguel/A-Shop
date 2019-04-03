@@ -2,9 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include "AltaBajaDep.h"
-#include "AltaBajaEmple.h"
+#include "BAEmpleados.h"
 #include "Venta.h"
 #include "sueldo.h"
+#include "ConsultaInven.h"
 
 void funcionEmpleado();
 void ventas();
@@ -39,7 +40,6 @@ void admin() {
 		printf("7. Eliminar articulo\n");
 		printf("8. Gasto de la empresa en empleados\n"); //listo
 		printf("9. Consultar inventario\n"); //nombre arti, cantidad
-		printf("10. ");
 		printf("10. Salir\n");
 		printf("R: ");
 		scanf("%d",&op);
@@ -61,7 +61,7 @@ void admin() {
 			break;
 
 			case 5:
-				//eliminaEmpleado();
+				eliminaEmpleado();
 			break;
 			case 6:
 			break;
@@ -70,11 +70,14 @@ void admin() {
 			case 8:
 				sueldo();
 			break;
+			case 9:
+				consultaInven();
+			break;
 			default:
 				printf("Opcion incorrecta\n");
 			break;
 		}
-	}while(op!=6);
+	}while(op!=10);
 }
 
 
