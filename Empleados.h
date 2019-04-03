@@ -4,6 +4,7 @@
 #include "AltaBajaDep.h"
 #include "AltaBajaEmple.h"
 #include "Venta.h"
+#include "sueldo.h"
 
 void funcionEmpleado();
 void ventas();
@@ -29,12 +30,18 @@ void admin() {
 	int op;
 	do {
 		printf("\nBIENVENIDO\nADMINISTRADORES\n\n");
-		printf("1. Dar de baja departamento\n");
-		printf("2. Dar de alta departamento \n");
+		printf("1. Dar de baja departamento\n"); //listo
+		printf("2. Dar de alta departamento \n"); //listo
 		printf("3. Modificar informacion de empleados\n");
-		printf("4. Agregar empleado\n");
+		printf("4. Agregar empleado\n"); //listo
 		printf("5. Eliminar empleado\n");
-		printf("6. Salir\n");
+		printf("6. Agregar articulo\n"); //listo
+		printf("7. Eliminar articulo\n");
+		printf("8. Gasto de la empresa en empleados\n"); //listo
+		printf("9. Consultar inventario\n"); //nombre arti, cantidad
+		printf("10. ");
+		printf("10. Salir\n");
+		printf("R: ");
 		scanf("%d",&op);
 		switch(op) {
 			case 1:
@@ -54,9 +61,15 @@ void admin() {
 			break;
 
 			case 5:
-				eliminaEmpleado();
+				//eliminaEmpleado();
 			break;
-
+			case 6:
+			break;
+			case 7:
+			break;
+			case 8:
+				sueldo();
+			break;
 			default:
 				printf("Opcion incorrecta\n");
 			break;
