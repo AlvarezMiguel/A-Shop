@@ -1,6 +1,18 @@
 123456
 chicles
 100
+1
+4.0
+
+789456
+chocolares
+200
+5
+10
+
+123456
+chicles
+100
 2
 1
 
@@ -8,4 +20,16 @@ chicles
 chocolares
 200
 20
+10
+
+123456
+chicles
+100
+5
+7
+
+789456
+chocolares
+200
+8
 10
