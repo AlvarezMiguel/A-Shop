@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define NOM_ARCHIVO "empleado.txt"
+#define NOM_ARCHIVO "empleados.txt"
 
 char * obtieneCadena(int linea); // extrae la cadena contenida en "X" numéro de lines (algo ineficiente porque recorre todo el archivo) 
 int num_lineas_archivo(void); //obtiene el numero de lineas del archivo empleado con el fin de sabes cuántos empleados existen
