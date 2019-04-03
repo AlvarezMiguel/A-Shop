@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define NOM_ARCHIVO "empleado.txt"
+#define NOM_ARCHIVO "empleados.txt"
 
 char * obtieneCadena(int linea); // extrae la cadena contenida en "X" numéro de lines (algo ineficiente porque recorre todo el archivo) 
 int num_lineas_archivo(void); //obtiene el numero de lineas del archivo empleado con el fin de sabes cuántos empleados existen
@@ -18,7 +18,7 @@ int sueldo (int argc, char const *argv[])// para probarlo, cambie sueldo por mai
 	totallineas= num_lineas_archivo ();// obtiene el numero total de lineas en el archivo empleados 
 	
 	
-	for(linea=5; noempleado<=(totallineas/6); linea)  //suma el sueldo de cada empleado 
+	for(linea=6; noempleado<=(totallineas/7)+1; linea)  //suma el sueldo de cada empleado 
 		//comienza en la linea donde está el campo sueldo (linea 5) 
 		// la condición evalua que el numero de empleados conincida con la cantidad de lineas en el archivo 
 	{
@@ -28,7 +28,7 @@ int sueldo (int argc, char const *argv[])// para probarlo, cambie sueldo por mai
 		sueldo=(float)atof(cadena); //cambio de cadena a float
 		
 		printf("Sueldo de empleado %d :%s\n ",noempleado-1,cadena);
-		linea=linea+6;
+		linea=linea+7;
 		sueldototal = sueldototal + sueldo;
 		
 	}
